@@ -30,7 +30,11 @@ After logging in, users choose between two assistants on the dashboard:
      GitHub uploads it and replaces this comment with a playable video link.
      Option 2 (a file in the repo): commit the video to demo/ and keep the link below. -->
 
-▶️ [Watch the demo video](demo/GITAGPT-Execution_Demo.mp4)
+
+
+https://github.com/user-attachments/assets/6ec69326-3ec7-48a4-9744-f7ac24a8029d
+
+
 
 ## ✨ Features
 

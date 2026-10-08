@@ -1,0 +1,24 @@
+# Secrets
+.env
+*.env
+
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
+
+# Local database
+*.db
+instance/
+
+# Training outputs / model weights
+outputs/
+Phi_4_model_Finetuned_GitaGPT/
+*.safetensors
+*.bin
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/

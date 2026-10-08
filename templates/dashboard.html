@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - GITAGPT</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+        }
+        .navbar {
+            background-color: #ff9933;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .navbar-brand {
+            font-weight: bold;
+            color: #fff;
+        }
+        .welcome-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1545389307-cf67a28fa76a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1964&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            margin-bottom: 40px;
+        }
+        .welcome-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .welcome-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .chat-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: transform 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .chat-card:hover {
+            transform: translateY(-10px);
+        }
+        .chat-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+        .gita-icon {
+            color: #ff9933;
+        }
+        .sanskrit-icon {
+            color: #138808;
+        }
+        .chat-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        .chat-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+        .btn-gita {
+            background-color: #ff9933;
+            border-color: #ff9933;
+            color: white;
+            padding: 10px 25px;
+            font-weight: 600;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+        .btn-gita:hover {
+            background-color: #e67300;
+            border-color: #e67300;
+            transform: scale(1.05);
+        }
+        .btn-sanskrit {
+            background-color: #138808;
+            border-color: #138808;
+            color: white;
+            padding: 10px 25px;
+            font-weight: 600;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+        .btn-sanskrit:hover {
+            background-color: #0e6606;
+            border-color: #0e6606;
+            transform: scale(1.05);
+        }
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: auto;
+        }
+        .footer a {
+            color: #ff9933;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        .alert {
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">GITAGPT</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Welcome Section -->
+    <section class="welcome-section">
+        <div class="container">
+            <h1 class="welcome-title">Welcome, {{ username }}!</h1>
+            <p class="welcome-subtitle">
+                Choose one of our AI assistants below to start your journey of exploration and learning.
+            </p>
+        </div>
+    </section>
+
+    <!-- Chat Options -->
+    <section class="container mb-5">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="chat-card">
+                    <div class="chat-icon gita-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3 class="chat-title">Gita GPT</h3>
+                    <p class="chat-description">
+                        Explore the wisdom of the Bhagavad Gita. Ask questions about its teachings, philosophy, and spiritual insights. Our AI will provide you with knowledge based on this sacred text.
+                    </p>
+                    <a href="{{ url_for('chat_page', chat_type='gita') }}" class="btn btn-gita">Start Conversation</a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="chat-card">
+                    <div class="chat-icon sanskrit-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3 class="chat-title">Sanskrit Phrases</h3>
+                    <p class="chat-description">
+                        Learn about Sanskrit phrases, their meanings, and cultural significance. Our AI will help you understand this ancient language and its rich vocabulary.
+                    </p>
+                    <a href="{{ url_for('chat_page', chat_type='sanskrit') }}" class="btn btn-sanskrit">Start Conversation</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 GITAGPT. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+

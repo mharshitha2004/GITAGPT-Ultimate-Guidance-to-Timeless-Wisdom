@@ -131,8 +131,8 @@ The fine-tuned model is on the Hub as [`harshitha672/Phi_4_model_Finetuned_GitaG
 
 ### 1. Clone and install
 ```bash
-git clone https://github.com/mharshitha2004/GitaGPT.git
-cd GitaGPT
+git clone https://github.com/mharshitha2004/GITAGPT-Ultimate-Guidance-to-Timeless-Wisdom.git
+cd GITAGPT-Ultimate-Guidance-to-Timeless-Wisdom
 python -m venv venv
 source venv/bin/activate        # Windows: venv\Scripts\activate
 pip install -r requirements.txt
@@ -222,15 +222,9 @@ GitaGPT/
 - Answer ratings from users to guide further training
 - Lightweight on-device model for offline use
 
-## 👥 Team
+## 👥 Author
 
-Major Project, B.Tech CSE, **Geethanjali College of Engineering and Technology** (2024–2025)
-
-- **Mandadi Harshitha Reddy**
-- Banala Prabhakar
-- Nadimpally Vaishnavi Devi
-
-**Guide:** P. Krishna Rao, Assistant Professor, Dept. of CSE
+- **Mandadi Harshitha Reddy, B.Tech - CSE, Aspiring AI Engineer**
 
 ## 📖 Citation
 
